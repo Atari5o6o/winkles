@@ -1,0 +1,24 @@
+{"intents":
+[
+  {"tag": "greeting",
+    "patterns": ["Hey", "Hello", "What's up", "How is it going", "Hi", "Good Morning", "Good evening", "Howdy"],
+    "responses": ["Hello there!", "Hello, What can I do for you", "How may I be of service" ]},
+  {"tag": "create.note",
+    "patterns": ["Please create new note", "New note", "Create a note", "Add a note", "Add new note", "Make a grocery list"],
+    "responses": [""]},
+  {"tag": "add_todo",
+    "patterns": ["Add to my todo list", "Remind me to", "New item on my todo", "add a todo to my list"],
+    "responses": [""]},
+  {"tag": "show_todos",
+    "patterns": ["Show my todos", "What is on my todo list", "What are my todos" ],
+    "responses": [""]},
+   {"tag": "Weather",
+    "patterns": ["Weather", "Whats the weather like", "Tell me the weather", "How is it looking outside"],
+    "responses": [""]},
+  {"tag": "tell_time",
+    "patterns": ["Tell me the time", "Whats the time"],
+    "responses": [""]},
+  {"tag": "exit",
+    "patterns": ["Bye", "Stop", "Go away", "I want to quit", "I have to go", "Exit", "Goodbye"],
+    "responses": [""]}
+]}
