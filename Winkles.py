@@ -22,13 +22,13 @@ speaker.setProperty('rate', 160)
 def city_weather():
     global recognizer
 
-    api_key = "abf8e9d70c9b86e22376b620cd447646"
 
-    #location = input("location?")   (use once ready to inplement variable location)
-    weather_URL = f"http://api.openweathermap.org/data/2.5/weather?q=tokyo&appid=" #for tokyo only
-    final_URL = weather_URL + api_key
 
-    x = requests.get(final_URL).json()
+
+    weather_url = f"http://api.openweathermap.org/data/2.5/weather?q=tokyo&appid=" #for tokyo only
+    final_url = weather_url + api_key
+
+    x = requests.get(final_url).json()
 
     if x[""] != "404":
         y = x["main"]
