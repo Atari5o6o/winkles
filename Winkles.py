@@ -4,6 +4,7 @@ import speech_recognition
 import pyttsx3 as tts
 import sys
 import nltk
+from config import api_key
 import pyaudio
 import requests
 from pprint import pprint
