@@ -22,8 +22,7 @@ speaker.setProperty('rate', 160)
 def city_weather():
     global recognizer
 
-
-
+    api_key = "abf8e9d70c9b86e22376b620cd447646"
 
     weather_url = f"http://api.openweathermap.org/data/2.5/weather?q=tokyo&appid=" #for tokyo only
     final_url = weather_url + api_key
@@ -88,7 +87,7 @@ def create_note():
             recognizer = speech_recognition.Recognizer()
             speaker.say("I did not understand you! Please try again!")
             speaker.runAndWait()
-
+todo_list = []
 def add_todo():
 
     global recognizer
@@ -136,6 +135,53 @@ def tell_time():
 
     speaker.say(current_time)
     speaker.runAndWait()
+
+def set_alarm():
+    global recognizer
+
+    speaker.say("Specify the hour in a 24 hour format")
+    speaker.runAndWait()
+
+    done = False
+
+    while not done:
+        try:
+            with speech_recognition.Microphone() as mic:
+
+                recognizer.adjust_for_ambient_noise(mic, duration=0.2)
+                audio = recognizer.listen(mic)
+
+                hour = int(recognizer.recognize_google(audio))
+
+        except speech_recognition.UnknownValueError:
+            recognizer = speech_recognition.Recognizer()
+            speaker.say("I did not understand you! Please try again!")
+            speaker.runAndWait()
+
+    speaker.say("Specify the minutes")
+    speaker.runAndWait()
+
+    done = False
+
+    while not done:
+        try:
+            with speech_recognition.Microphone() as mic:
+
+                recognizer.adjust_for_ambient_noise(mic, duration=0.2)
+                audio = recognizer.listen(mic)
+
+                minute = int(recognizer.recognize_google(audio))
+
+        except speech_recognition.UnknownValueError:
+            recognizer = speech_recognition.Recognizer()
+            speaker.say("I did not understand you! Please try again!")
+            speaker.runAndWait()
+
+    while True:
+        if hour == datetime.datetime.now().hour and minute == datetime.datetime.now().minute:
+
+            speaker.say("It is now" + hour + minute)
+            speaker.runAndWait()
 
 def greeting():
 
